@@ -1,0 +1,38 @@
+# Comparação de Listas Lambda
+
+Este é um script Lambda que compara e atualiza listas no formato CSV armazenadas no Amazon S3.
+
+## Funcionalidade
+
+O objetivo deste script é comparar duas listas CSV, identificar as linhas em comum entre elas e atualizar a lista de backup, removendo as linhas em comum. As etapas envolvidas são as seguintes:
+
+1. Download das listas CSV de backup e processadas do Amazon S3.
+2. Carregamento das listas CSV em estruturas de dados utilizando a biblioteca pandas.
+3. Identificação dos índices das linhas em comum entre as duas listas.
+4. Remoção das linhas em comum da lista de backup.
+5. Salvamento da lista de backup atualizada em um novo arquivo CSV.
+6. Upload da lista de backup atualizada de volta para o Amazon S3.
+
+## Configuração
+
+Antes de executar o script, é necessário configurar as variáveis de ambiente necessárias no ambiente de execução do Lambda. As variáveis de ambiente são as seguintes:
+
+- `BUCKET_NAME`: Nome do bucket do Amazon S3 onde as listas serão armazenadas.
+- `CSV_BACKUP`: Nome do arquivo CSV de backup.
+- `LIST_PROCESSED`: Nome do arquivo CSV com a lista processada.
+- `LIST_UPDATED`: Nome do arquivo CSV que será gerado com a lista de backup atualizada.
+
+## Execução
+
+O script é executado como uma função Lambda. Ele realiza todas as etapas descritas acima para comparar e atualizar as listas. O log de execução é gerado para acompanhar o progresso e quaisquer erros que possam ocorrer durante o processo.
+
+## Pré-requisitos
+
+Antes de usar este script, certifique-se de que as seguintes dependências sejam atendidas:
+
+- Configuração adequada das variáveis de ambiente no ambiente de execução Lambda.
+- Acesso e permissões adequadas para acessar o bucket do Amazon S3 especificado.
+
+## Notas
+
+Este script foi desenvolvido para ser executado como uma função Lambda no ambiente da Amazon Web Services (AWS). Certifique-se de que todas as configurações e permissões necessárias estejam corretamente configuradas para garantir a execução bem-sucedida do script.

@@ -1,0 +1,5 @@
+requests
+pandas==1.5.2
+boto3
+botocore
+numpy
